@@ -1,0 +1,19 @@
+version: '3'
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "8000:8000"
+    networks:
+      - microservices-network
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "3000:3000"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
